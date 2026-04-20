@@ -57,12 +57,12 @@ function DashboardPage() {
   }
 
   return (
-    <main className="space-y-4 pb-6">
+    <main className="flex min-h-full flex-col gap-4 lg:gap-5">
       <header>
-        <h1 className="text-2xl font-semibold text-zinc-100">I miei progressi</h1>
+        <h1 className="text-2xl font-semibold text-zinc-100 sm:text-3xl">I miei progressi</h1>
       </header>
       <section
-        className={`rounded-3xl border bg-zinc-900 p-5 transition ${
+        className={`card-fade-in rounded-3xl border bg-zinc-900 p-5 shadow-lg shadow-black/20 transition sm:p-6 ${
           animateTop ? 'glow-green border-emerald-500/60' : 'border-zinc-800'
         }`}
       >
@@ -103,7 +103,7 @@ function DashboardPage() {
                 } ${checkAnimationIndex === idx ? 'scale-110' : ''}`}
               >
                 {day.done ? (
-                  <CheckCircleIcon className={`h-4 w-4 ${checkAnimationIndex === idx ? 'animate-pulse' : ''}`} />
+                  <CheckCircleIcon className={`h-4 w-4 ${checkAnimationIndex === idx ? 'check-pop' : ''}`} />
                 ) : (
                   day.label
                 )}
@@ -119,9 +119,15 @@ function DashboardPage() {
           </p>
         ) : null}
 
+        {completed >= target ? (
+          <p className="liquid-accent mt-3 rounded-xl px-3 py-2 text-sm font-semibold text-emerald-200">
+            Obiettivo completato: reward sbloccata
+          </p>
+        ) : null}
+
         <button
           onClick={handleWorkoutCheckIn}
-          className="mt-4 w-full rounded-2xl bg-emerald-500 py-3 text-sm font-semibold text-zinc-950 transition hover:-translate-y-0.5 hover:bg-emerald-600 hover:shadow-[0_0_24px_rgba(34,197,94,0.35)] disabled:cursor-not-allowed disabled:bg-zinc-700 disabled:text-zinc-300"
+          className="btn-interactive mt-4 w-full rounded-2xl bg-emerald-500 py-3 text-sm font-semibold text-zinc-950 shadow-md shadow-emerald-500/20 hover:bg-emerald-600 disabled:cursor-not-allowed disabled:bg-zinc-700 disabled:text-zinc-300"
           disabled={completed >= target}
         >
           {completed >= target ? 'Obiettivo settimanale completato' : 'Allenamento completato'}
@@ -134,12 +140,13 @@ function DashboardPage() {
         </button>
       </section>
 
-      <section className="rounded-3xl border border-zinc-800 bg-zinc-900 p-5">
-        <h3 className="text-base font-semibold text-zinc-100">La tua storia</h3>
-        <p className="mt-2 text-sm leading-relaxed text-zinc-400">{progressSummary.story}</p>
+      <div className="grid gap-4 lg:grid-cols-2 lg:items-start">
+      <section className="card-fade-in rounded-3xl border border-zinc-800 bg-zinc-900 p-5 shadow-lg shadow-black/20 sm:p-6" style={{ animationDelay: '70ms' }}>
+        <h3 className="text-base font-semibold text-zinc-100 sm:text-lg">La tua storia</h3>
+        <p className="mt-2 text-sm leading-relaxed text-zinc-400 sm:text-base">{progressSummary.story}</p>
       </section>
 
-      <section className="rounded-3xl border border-zinc-800 bg-zinc-900 p-5">
+      <section className="card-fade-in rounded-3xl border border-zinc-800 bg-zinc-900 p-5 shadow-lg shadow-black/20 sm:p-6" style={{ animationDelay: '120ms' }}>
         <div className="grid grid-cols-[1fr_auto] gap-2 text-xs text-zinc-500">
           <div className="grid grid-cols-7 gap-2">
             {progressCalendar.weekDays.map((d, idx) => (
@@ -187,6 +194,7 @@ function DashboardPage() {
           {progressSummary.monthLabel}
         </p>
       </section>
+      </div>
     </main>
   )
 }

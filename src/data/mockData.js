@@ -104,33 +104,31 @@ export const badges = [
 
 export const courses = [
   {
-    id: 'functional',
-    name: 'Functional Fit',
-    coach: 'Coach Giulia',
-    level: 'Intermedio',
-    time: 'Lun - Mer - Ven | 18:30',
-    spots: 8,
+    id: 'body-balance',
+    name: 'Body Balance',
+    description: 'Yoga, tai chi e pilates per flessibilità e benessere mentale',
+    image:
+      'https://images.unsplash.com/photo-1574680178050-55c6a6a96e0a?auto=format&fit=crop&w=1400&q=80&v=pro-balance',
   },
   {
-    id: 'hiit',
-    name: 'HIIT Burn',
-    coach: 'Coach Marco',
-    level: 'Avanzato',
-    time: 'Mar - Gio | 19:15',
-    spots: 5,
+    id: 'body-shape',
+    name: 'Body Shape',
+    description: 'Allenamento completo per tonificazione con coreografie efficaci',
+    image:
+      'https://images.unsplash.com/photo-1517130038641-a774d04afb3c?auto=format&fit=crop&w=1400&q=80&v=pro-shape',
   },
   {
-    id: 'mobility',
-    name: 'Mobility Core',
-    coach: 'Coach Elena',
-    level: 'Base',
-    time: 'Sabato | 10:00',
-    spots: 12,
+    id: 'body-strength',
+    name: 'Body Strength',
+    description: 'Corso dinamico con bilanciere per sviluppo muscolare e resistenza',
+    image:
+      'https://images.unsplash.com/photo-1534367610401-9f5ed68180aa?auto=format&fit=crop&w=1400&q=80&v=pro-strength',
   },
 ]
 
 export const profile = {
   name: 'Luca Bianchi',
+  gender: 'male',
   membership: 'Pro Plus',
   email: 'luca.bianchi@email.com',
   workoutsThisMonth: 11,

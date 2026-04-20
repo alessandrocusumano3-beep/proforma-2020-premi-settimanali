@@ -7,19 +7,23 @@ import {
 
 function RewardsPage() {
   return (
-    <main className="space-y-4 pb-6">
+    <main className="flex min-h-full flex-col gap-4 lg:gap-5">
       <SectionTitle
         eyebrow="Premi"
         title="I tuoi traguardi"
         subtitle="Completa settimane consecutive per sbloccare premi crescenti."
       />
 
-      <section className="rounded-3xl border border-zinc-800 bg-zinc-900 p-5">
-        <div className="space-y-2">
+      <section className="card-fade-in rounded-3xl border border-zinc-800 bg-zinc-900 p-5 shadow-lg shadow-black/20 sm:p-6">
+        <div className="grid gap-2 md:grid-cols-2 xl:grid-cols-1">
           {levelMilestones.map((milestone) => (
             <article
               key={milestone.weeks}
-              className="rounded-2xl border border-zinc-800 bg-zinc-950 px-4 py-3"
+              className={`rounded-2xl border px-4 py-3 ${
+                milestone.current >= milestone.weeks
+                  ? 'liquid-accent'
+                  : 'border-zinc-800 bg-zinc-950'
+              }`}
             >
               <p className="text-sm font-medium text-zinc-300">
                 Premio per il tuo traguardo di {milestone.weeks} settimane di fila
@@ -31,7 +35,7 @@ function RewardsPage() {
           ))}
         </div>
 
-        <button className="mt-4 flex w-full items-center justify-center gap-2 rounded-2xl bg-emerald-500 py-3 text-sm font-bold text-zinc-950 transition hover:bg-emerald-600 hover:shadow-[0_0_20px_rgba(34,197,94,0.35)]">
+        <button className="btn-interactive mt-4 flex w-full items-center justify-center gap-2 rounded-2xl bg-emerald-500 py-3 text-sm font-bold text-zinc-950 shadow-md shadow-emerald-500/20 hover:bg-emerald-600">
           <GiftTopIcon className="h-5 w-5" />
           {weeklyReward.available} ricompensa disponibile
         </button>
