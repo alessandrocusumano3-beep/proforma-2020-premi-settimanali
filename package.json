@@ -11,9 +11,12 @@
   },
   "dependencies": {
     "@heroicons/react": "^2.2.0",
+    "autoprefixer": "^10.5.0",
+    "postcss": "^8.5.10",
     "react": "^19.2.5",
     "react-dom": "^19.2.5",
-    "react-router-dom": "^7.14.1"
+    "react-router-dom": "^7.14.1",
+    "tailwindcss": "^4.2.2"
   },
   "devDependencies": {
     "@eslint/js": "^9.39.4",
